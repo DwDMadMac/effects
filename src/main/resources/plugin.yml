@@ -1,0 +1,52 @@
+name: effects
+author: dwd_madmac
+version: 1.0
+main: net.downwithdestruction.effects.Effects
+description: Gives users a special effect
+
+commands:
+    darkcloud:
+        usage: /<command> [time] (player)
+        aliases: [dc,darkness]
+        description: Emerge a dark cloud over a players head.
+    testcommand:
+        usage: /<command> [time] (player)
+        aliases: [test, tc]
+        description: This command is for testing purposes.
+    testcommandtwo:
+        usage: /<command> [time] (player)
+        aliases: [testtwo, tct]
+        description: This command is for testing purposes.
+
+permissions:
+    ### Commands ###
+    effects.command.darkcloud:
+        description: Emerge a dark cloud over a players head.
+        default: op
+
+    ### Exempts ##
+    effects.exempt.darkcloud:
+        description: Makes a player immune to the Dark Cloud.
+        default: op
+
+    ### On Others ###
+    effects.command.darkcloud.others:
+        description: Emerge a dark cloud over another players head.
+        default: op
+
+    ### OP Permissions ##
+    effects.command.op:
+        description: Gives every command permission.
+        default: false
+        children:
+            effects.command.darkcloud: true
+    effects.exempt.op:
+        description: Gives every exempt permission.
+        default: false
+        children:
+            effects.exempt.darkcloud: true
+    effects.others.op:
+        description: Gives every others permission.
+        default: false
+        children:
+            effects.command.darkcloud.others: true
